@@ -1,4 +1,5 @@
 .container_1 {
+    margin-top: 25px;
     display: flex;
     justify-content: center;
     padding: 20px;
@@ -39,11 +40,11 @@
     border: 1px solid #ccc;
     border-radius: 10px;
     font-size: 18px;
-    border: none;
+    /* border: none; */
     outline: none;
   }
   .input-field:focus {
-    border-bottom: 2px solid #29b6f6; /* Highlight border on focus */
+    border: 2px solid #29b6f6; /* Highlight border on focus */
   }
 
   /* Icon styles */
@@ -98,8 +99,11 @@
   }
 
   #map {
+    width: 90vw;
     height: 500px;
     border-radius: 10px;
 }
   
-  
+  #section-1{
+    /* display: none; */
+  }
