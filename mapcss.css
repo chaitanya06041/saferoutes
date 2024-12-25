@@ -1,11 +1,14 @@
+body{
+    background-color: #cce4ee;
+}
 .container_1 {
     margin-top: 25px;
     display: flex;
     justify-content: center;
     padding: 20px;
-  }
-  
-  .input-section {
+}
+
+.input-section {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,25 +19,25 @@
     max-width: 800px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     gap: 20px; /* Space between rows */
-  }
-  
-  /* Row for Source, Swap, and Destination */
-  .input-row {
+}
+
+/* Row for Source, Swap, and Destination */
+.input-row {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     gap: 20px;
-  }
-  
-  .input-item {
+}
+
+.input-item {
     display: flex;
     align-items: center;
     gap: 10px;
     font-size: 'poppins';
-  }
-  
-  .input-field {
+}
+
+.input-field {
     width: 250px;
     padding: 8px 10px;
     border: 1px solid #ccc;
@@ -42,13 +45,13 @@
     font-size: 18px;
     /* border: none; */
     outline: none;
-  }
-  .input-field:focus {
+}
+.input-field:focus {
     border: 2px solid #29b6f6; /* Highlight border on focus */
-  }
+}
 
-  /* Icon styles */
-  .icon {
+/* Icon styles */
+.icon {
     width: 30px;
     height: 30px;
     border: 2px solid #ccc;
@@ -56,25 +59,25 @@
     padding: 5px;
     object-fit: contain;
     background-color: #fff;
-  }
-  
-  /* Transport Mode Section */
-  .transport-mode {
+}
+
+/* Transport Mode Section */
+.transport-mode {
     display: flex;
     justify-content: center;
     gap: 50px;
     width: 100%;
-  }
-  
-  .transport-mode label {
+}
+
+.transport-mode label {
     font-family: 'poppins';
     display: flex;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-  }
-  
-  .mode-icon {
+}
+
+.mode-icon {
     width: 30px;
     height: 30px;
     border: 2px solid #ccc;
@@ -82,28 +85,53 @@
     padding: 5px;
     background-color: #fff;
     transition: border-color 0.3s;
-  }
-  
-  .transport-mode input[type="radio"] {
+}
+
+.transport-mode input[type="radio"] {
     display: none; /* Hide default radio button */
-  }
-  
-  .transport-mode input[type="radio"]:checked + .mode-icon {
+}
+
+.transport-mode input[type="radio"]:checked + .mode-icon {
     border-color: #29b6f6; /* Highlight selected mode */
-  }
-  
-  .transport-mode span {
+}
+
+.transport-mode span {
     margin-top: 5px;
     font-size: 14px;
     color: #333;
-  }
-
-  #map {
-    width: 90vw;
-    height: 500px;
-    border-radius: 10px;
 }
-  
-  #section-1{
-    /* display: none; */
-  }
+
+#map {
+    width: 90vw;
+    height: 700px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+
+.info{
+    margin-top: 75px;
+    width: 100%;
+    height: 550px;
+    display: flex;
+    justify-content: center;
+}
+
+.info_container{
+    background-color: transparent;
+    width: 80%;
+    height: 550px;
+    border-radius: 20px;
+    padding: 100px;
+    background-image:url('assets/images/banner-02.jpg');
+    background-size: cover;
+    /* color: red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 100px;
+}
+.info_container h1{
+    color: white;
+}

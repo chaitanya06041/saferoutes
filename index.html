@@ -15,10 +15,7 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
     <link rel="stylesheet" href="assets/css/templatemo-woox-travel.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
     <link rel="stylesheet" href="mapcss.css" />
     <!--
@@ -49,7 +46,7 @@ https://templatemo.com/tm-580-woox-travel
     <!-- ***** Preloader End ***** -->
 
     <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky">
+        <header class="header-area header-sticky">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -79,245 +76,60 @@ https://templatemo.com/tm-580-woox-travel
     <!-- ***** Header Area End ***** -->
 
     <!-- ***** Main Banner Area Start ***** -->
-    <section id="section-1">
-        <div class="content-slider">
-            <input type="radio" id="banner1" class="sec-1-input" name="banner" checked>
-            <input type="radio" id="banner2" class="sec-1-input" name="banner">
-            <input type="radio" id="banner3" class="sec-1-input" name="banner">
-            <input type="radio" id="banner4" class="sec-1-input" name="banner">
-            <div class="slider">
-                <div id="top-banner-1" class="banner">
-                    <div class="banner-inner-wrapper header-text">
-                        <div class="main-caption">
-                            <h2>Safety at a glance—Find your nearest safe haven:</h2>
-                            <h1>Safe-Spots</h1>
-                            <div class="border-button"><a href="#map">Go There</a></div>
-                        </div>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="more-info">
-                                        <div class="row">
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <i class="fas fa-map-marker-alt"></i>
-                                                <h4>
-                                                    <span>SOURCE</span><br>
-                                                    <input type="text" placeholder="Enter Source" style="width: 100%; border: none; border-bottom: 1px solid #ccc; text-align: center; background: transparent; display: flex;">
-                                                </h4>
-                                            </div>
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <i class="fas fa-arrows-alt-h"></i>
-
-                                            </div>
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <i class="fas fa-flag-checkered"></i>
-                                                <h4>
-                                                    <span>DESTINATION</span><br>
-                                                    <input type="text" placeholder="Enter Destination" style="width: 100%; border: none; border-bottom: 1px solid #ccc; text-align: center; background: transparent;">
-                                                </h4>
-                                            </div>
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <div class="main-button">
-                                                    <a href="#map">GO</a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+    <div class="info">
+        <div class="info_container">
+            <h1>
+                helpful for <span id="typed"></span>
+            </h1>
+            <div class="container_1">
+                <div class="input-section">
+                  <!-- First Row: Source, Swap, Destination -->
+                  <div class="input-row">
+                    <div class="input-item" >
+                      <img src="images/pin.png" alt="Source" class="icon">
+                      <input id="origin-input" type="text" placeholder="Source" class="input-field">
                     </div>
-                </div>
-                <div id="top-banner-2" class="banner">
-                    <div class="banner-inner-wrapper header-text">
-                        <div class="main-caption">
-                            <h2>Help is just a tap away in times of need</h2>
-                            <h1>SOS</h1>
-                            <div class="border-button"><a href="#map">Go There</a></div>
-                        </div>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="more-info">
-                                        <div class="row">
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <i class="fas fa-map-marker-alt"></i>
-                                                <h4>
-                                                    <span>SOURCE</span><br>
-                                                    <input type="text" placeholder="Enter Source" style="width: 100%; border: none; border-bottom: 1px solid #ccc; text-align: center; background: transparent;">
-                                                </h4>
-                                            </div>
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <i class="fa fa-globe"></i>
-                                                <h4>
-                                                    <span>Territory:</span><br>275.400 KM<em>2</em>
-                                                </h4>
-                                            </div>
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <i class="fas fa-flag-checkered"></i>
-                                                <h4>
-                                                    <span>DESTINATION</span><br>
-                                                    <input type="text" placeholder="Enter Destination" style="width: 100%; border: none; border-bottom: 1px solid #ccc; text-align: center; background: transparent;">
-                                                </h4>
-                                            </div>
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <div class="main-button">
-                                                    <a href="#map">GO</a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+              
+                    <div class="input-item" >
+                      <img src="images/alter.png" alt="Swap" class="icon" id="swap-button">
                     </div>
-                </div>
-                <div id="top-banner-3" class="banner">
-                    <div class="banner-inner-wrapper header-text">
-                        <div class="main-caption">
-                            <h2>Heatmap-Based Path Visualization</h2>
-                            <h1>SafePath</h1>
-                            <div class="border-button"><a href="#map">Go There</a></div>
-                        </div>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="more-info">
-                                        <div class="row">
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <i class="fas fa-map-marker-alt"></i>
-                                                <h4>
-                                                    <span>SOURCE</span><br>
-                                                    <input type="text" placeholder="Enter Source" style="width: 100%; border: none; border-bottom: 1px solid #ccc; text-align: center; background: transparent;">
-                                                </h4>
-                                            </div>
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <i class="fas fa-arrows-alt-h"></i>
-
-                                            </div>
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <i class="fas fa-flag-checkered"></i>
-                                                <h4>
-                                                    <span>DESTINATION</span><br>
-                                                    <input type="text" placeholder="Enter Destination" style="width: 100%; border: none; border-bottom: 1px solid #ccc; text-align: center; background: transparent;">
-                                                </h4>
-                                            </div>
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <div class="main-button">
-                                                    <a href="#map">GO</a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+              
+                    <div class="input-item">
+                      <img src="images/flag.png" alt="Destination" class="icon">
+                      <input id="destination-input" type="text" placeholder="Destination" class="input-field">
                     </div>
+                  </div>
+              
+                  <!-- Second Row: Transport Modes -->
+                  <div class="transport-mode" id="mode-selector">
+                    <label>
+                      <input type="radio" name="mode" value="walking" id="changemode-walking">
+                      <img src="images/man-walking.png" alt="Walking" class="mode-icon">
+                      <span>Walking</span>
+                    </label>
+                    <label>
+                      <input type="radio" name="mode" value="transit" id="changemode-transit">
+                      <img src="images/bus.png" alt="Transit" class="mode-icon">
+                      <span>Transit</span>
+                    </label>
+                    <label>
+                      <input type="radio" name="mode" value="driving" id="changemode-driving" checked>
+                      <img src="images/car.png" alt="Driving" class="mode-icon">
+                      <span>Driving</span>
+                    </label>
+                  </div>
+              
+                  <div class="sosClass">
+                      <button id="sosbtn" class="btn btn-danger">SOS</button>
+                  </div>
                 </div>
-                <div id="top-banner-4" class="banner">
-                    <div class="banner-inner-wrapper header-text">
-                        <div class="main-caption">
-                            <h2>Voice-Guided Navigation</h2>
-                            <h1>NavAssist</h1>
-                            <div class="border-button"><a href="#map">Go There</a></div>
-                        </div>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="more-info">
-                                        <div class="row">
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <i class="fas fa-map-marker-alt"></i>
-                                                <h4>
-                                                    <span>SOURCE</span><br>
-                                                    <input type="text" placeholder="Enter Source" style="width: 100%; border: none; border-bottom: 1px solid #ccc; text-align: center; background: transparent;">
-                                                </h4>
-                                            </div>
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <i class="fas fa-arrows-alt-h"></i>
-
-                                            </div>
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <i class="fas fa-flag-checkered"></i>
-                                                <h4>
-                                                    <span>DESTINATION</span><br>
-                                                    <input type="text" placeholder="Enter Destination" style="width: 100%; border: none; border-bottom: 1px solid #ccc; text-align: center; background: transparent;">
-                                                </h4>
-                                            </div>
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <div class="main-button">
-                                                    <a href="#map">GO</a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <nav>
-                <div class="controls">
-                    <label for="banner1"><span class="progressbar"><span class="progressbar-fill"></span></span><span class="text">1</span></label>
-                    <label for="banner2"><span class="progressbar"><span class="progressbar-fill"></span></span><span class="text">2</span></label>
-                    <label for="banner3"><span class="progressbar"><span class="progressbar-fill"></span></span><span class="text">3</span></label>
-                    <label for="banner4"><span class="progressbar"><span class="progressbar-fill"></span></span><span class="text">4</span></label>
-                </div>
-            </nav>
+              </div>
         </div>
-    </section>
+    </div>
     <!-- ***** Main Banner Area End ***** -->
 
     
     
-    <div class="container_1">
-        <div class="input-section">
-          <!-- First Row: Source, Swap, Destination -->
-          <div class="input-row">
-            <div class="input-item" >
-              <img src="images/pin.png" alt="Source" class="icon">
-              <input id="origin-input" type="text" placeholder="Source" class="input-field">
-            </div>
-      
-            <div class="input-item" >
-              <img src="images/alter.png" alt="Swap" class="icon" id="swap-button">
-            </div>
-      
-            <div class="input-item">
-              <img src="images/flag.png" alt="Destination" class="icon">
-              <input id="destination-input" type="text" placeholder="Destination" class="input-field">
-            </div>
-          </div>
-      
-          <!-- Second Row: Transport Modes -->
-          <div class="transport-mode" id="mode-selector">
-            <label>
-              <input type="radio" name="mode" value="walking" id="changemode-walking">
-              <img src="images/man-walking.png" alt="Walking" class="mode-icon">
-              <span>Walking</span>
-            </label>
-            <label>
-              <input type="radio" name="mode" value="transit" id="changemode-transit">
-              <img src="images/bus.png" alt="Transit" class="mode-icon">
-              <span>Transit</span>
-            </label>
-            <label>
-              <input type="radio" name="mode" value="driving" id="changemode-driving" checked>
-              <img src="images/car.png" alt="Driving" class="mode-icon">
-              <span>Driving</span>
-            </label>
-          </div>
-      
-          <div class="sosClass">
-              <button id="sosbtn" class="btn btn-danger">SOS</button>
-          </div>
-        </div>
-      </div>
       <div id="map" class="ui container"></div>
       <br>
       <br>
@@ -328,6 +140,7 @@ https://templatemo.com/tm-580-woox-travel
         <script src="data.js"></script>
         <script src="map.js"></script>
         <script src="sos.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
     
     
@@ -349,18 +162,18 @@ https://templatemo.com/tm-580-woox-travel
     <script src="assets/js/custom.js"></script>
 
     <script>
-        function bannerSwitcher() {
-            next = $('.sec-1-input').filter(':checked').next('.sec-1-input');
-            if (next.length) next.prop('checked', true);
-            else $('.sec-1-input').first().prop('checked', true);
-        }
+        // function bannerSwitcher() {
+        //     next = $('.sec-1-input').filter(':checked').next('.sec-1-input');
+        //     if (next.length) next.prop('checked', true);
+        //     else $('.sec-1-input').first().prop('checked', true);
+        // }
 
-        var bannerTimer = setInterval(bannerSwitcher, 5000);
+        // var bannerTimer = setInterval(bannerSwitcher, 5000);
 
-        $('nav .controls label').click(function() {
-            clearInterval(bannerTimer);
-            bannerTimer = setInterval(bannerSwitcher, 5000)
-        });
+        // $('nav .controls label').click(function() {
+        //     clearInterval(bannerTimer);
+        //     bannerTimer = setInterval(bannerSwitcher, 5000)
+        // });
 
 
         // Get references to the input fields and the swap button
@@ -374,6 +187,23 @@ https://templatemo.com/tm-580-woox-travel
         const tempValue = sourceInput.value;
         sourceInput.value = destinationInput.value;
         destinationInput.value = tempValue;
+
+        
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var typeData = new Typed("#typed", {
+                strings: [
+                "Finding Safe Route ",
+                "Avoiding Crime Areas",
+                "Voice Nevigation",
+                ],
+                loop: true, // Enable looping
+                typeSpeed: 100, // Speed of typing
+                backSpeed: 80, // Speed of deleting
+                backDelay: 1000, // Delay before starting to delete
+                startDelay: 300, // Delay before typing starts
+            });
         });
     </script>
 
