@@ -53,16 +53,16 @@ https://templatemo.com/tm-580-woox-travel
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         <a href="index.html" class="logo">
-                            <img src="assets/images/logo.png" alt="">
+                            <img src="images/logo-removebg-preview.png" alt="">
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li><a href="index.html" class="active">Nav📍</a></li>
-                            <li><a href="about.html">Safe-Spots</a></li>
-                            <li><a href="deals.html">SOS</a></li>
-                            <li><a href="reservation.html">Voice-Nav</a></li>
-                            <li><a href="reservation.html">Login</a></li>
+                            <li><a href="#map">Safe-Spots</a></li>
+                            <li><a href="#map">SOS</a></li>
+                            <li><a href="#map">Voice-Nav</a></li>
+                            <li><a href="#map">Login</a></li>
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -79,7 +79,7 @@ https://templatemo.com/tm-580-woox-travel
     <div class="info">
         <div class="info_container">
             <h1>
-                helpful for <span id="typed"></span>
+                <span id="typed"></span>
             </h1>
             <div class="container_1">
                 <div class="input-section">
@@ -131,6 +131,9 @@ https://templatemo.com/tm-580-woox-travel
     
     
       <div id="map" class="ui container"></div>
+      <div id="added-lists">
+        
+      </div>
       <br>
       <br>
       
@@ -194,9 +197,9 @@ https://templatemo.com/tm-580-woox-travel
         document.addEventListener("DOMContentLoaded", function () {
             var typeData = new Typed("#typed", {
                 strings: [
-                "Finding Safe Route ",
-                "Avoiding Crime Areas",
-                "Voice Nevigation",
+                "Empowering Navigation with Safety First",
+                "Because Every Journey Deserves Protection.",
+                "Stay Informed, Stay Safe.",
                 ],
                 loop: true, // Enable looping
                 typeSpeed: 100, // Speed of typing

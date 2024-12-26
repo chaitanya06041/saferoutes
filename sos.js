@@ -18,6 +18,7 @@ sosbtn.addEventListener('click', ()=>{
                 // You can use this location to center the map
                 initMap({ coords: { latitude: latitude, longitude: longitude } });
                 showNearestCommunityCenter();
+                location.hash = "#map";
             },
             function(error) {
                 console.error("Error Code = " + error.code + " - " + error.message);
@@ -136,7 +137,3 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
     return R * c; // Distance in kilometers
 }
 
-// Function to send an emergency notification
-function sendEmergencyNotification() {
-    alert("Emergency notification sent!");
-}

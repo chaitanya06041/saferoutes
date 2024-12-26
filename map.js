@@ -124,6 +124,9 @@ AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function(aut
             me.destinationPlaceId = place.place_id;
         }
         me.route();
+        if (me.originPlaceId && me.destinationPlaceId) {
+            location.hash = "#map"; // Update the URL to point to the #map section
+        }
     });
 
 };
@@ -177,17 +180,21 @@ AutocompleteDirectionsHandler.prototype.route = function() {
                 // size: new google.maps.Size(20, 32),
 
             };
-            var image5 = {
-                url: 'https://static9.depositphotos.com/1431107/1143/i/950/depositphotos_11437164-stock-photo-green-tick.jpg',
-                // This marker is 20 pixels wide by 32 pixels high.
-                scaledSize: new google.maps.Size(23, 23),
-                // size: new google.maps.Size(20, 32),
+            // var image5 = {
+            //     url: 'https://static9.depositphotos.com/1431107/1143/i/950/depositphotos_11437164-stock-photo-green-tick.jpg',
+            //     // This marker is 20 pixels wide by 32 pixels high.
+            //     scaledSize: new google.maps.Size(23, 23),
+            //     // size: new google.maps.Size(20, 32),
 
-            };
-            color = ["purple", "yellow", "green", "blue", "pink"];
+            // };
+            color = ["green", "blue", "orange", "red"];
             //me.directionsDisplay.setDirections(response);
             console.log(response.routes.length);
             var dindex = [];
+
+            let container = document.querySelector('#added-lists');
+            container.innerHTML = "";
+
             for (var k = 0, len = response.routes.length; k < len; k++) {
                 dindex[k] = 0;
                 var points = response.routes[k].overview_path;
@@ -268,28 +275,29 @@ AutocompleteDirectionsHandler.prototype.route = function() {
                     }
 
                 }
-
                 dindex[k] /= count;
                 var div = document.createElement('div');
-                div.className = "ui main container segment"
-                document.body.appendChild(div);
+                div.className = "ui main container response-div"
+                container.appendChild(div);
                 var colour = "color" + k,
                     duration = "duration" + k,
                     distance = "distance" + k,
                     safetyi = "safetyi" + k;
-                div.innerHTML = '<ul class="msg"><li id=' + colour + '></li><li id=' + duration + '></li><li id=' + distance + '></li><li id=' + safetyi + '></li></ul>';
-                document.getElementById(colour).innerHTML = "Route Number:  " + k + " is colored " +
-                    (color[k]);
+                    div.innerHTML = '<ul class="msg"><li ><h2 id=' + colour + '></h2></li><li id=' + duration + '></li><li id=' + distance + '></li><li id=' + safetyi + '></li></ul>';
+                    document.getElementById(colour).innerHTML = "Route Number:  " + k + " (" +
+                        (color[k]) +")";
+                    document.getElementById(colour).style.color = (color[k]);
                 document.getElementById(distance).innerHTML = "Distance  : " +
                     (response.routes[k].legs[0].distance.text);
                 //console.log((response.routes[i].legs[0].distance.value) / 1000 + "killo meters");
                 // Display the duration:
                 document.getElementById(duration).innerHTML = "Time duration for reaching : " +
                     response.routes[k].legs[0].duration.text;
-                console.log(response.routes[k].legs[0]);
+                // console.log(response.routes[k].legs[0]);
                 infoWindow.setPosition(posInit);
                 var message = 'dangerIndex is :' + dindex[k];
                 document.getElementById(safetyi).innerHTML = message;
+                if(dindex[k] > 3) document.getElementById(safetyi).style.color = 'red';
                 var dis = 'Route :' + k;
                 //infoWindow.setContent(dis);
                 //       infoWindow.open(map);
