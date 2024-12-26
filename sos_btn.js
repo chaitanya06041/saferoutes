@@ -10,15 +10,33 @@ document.getElementById('sos-btn').addEventListener('click', async function () {
         errorMessageElement.style.color = "red";
         return;
     }
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+    
+                // Store current location for further use
+                currentLocation = { latitude, longitude };
+            },
+            function(error) {
+                console.error("Error Code = " + error.code + " - " + error.message);
+            }
+        );
+    } else {
+        console.error("Geolocation is not supported by this browser.");
+        return
+    }
 
     // Call the function to send the message
-    await sendSOSMessage(origin, destination);
+    await sendSOSMessage(origin, destination,currentLocation);
 });
 
-async function sendSOSMessage(origin, destination) {
+async function sendSOSMessage(origin, destination, currentlocation) {
     const phoneNumbers = [
         "+918208955480" // Replace with your target WhatsApp number(s)
     ];
+    const location_link = `https://www.google.com/maps?q=${currentlocation.latitude},${currentlocation.longitude}`;
 
     try {
         const promises = phoneNumbers.map(async (number) => {
