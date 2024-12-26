@@ -8,6 +8,7 @@ document.getElementById('sosbtn').addEventListener('click', async function () {
         const errorMessageElement = document.getElementById('error-message');
         errorMessageElement.innerText = "Please enter both origin and destination.";
         errorMessageElement.style.color = "red";
+        alert("Enter origin and destination");
         return;
     }
     if (navigator.geolocation) {
@@ -34,7 +35,7 @@ document.getElementById('sosbtn').addEventListener('click', async function () {
 
 async function sendSOSMessage(origin, destination, currentlocation) {
     const phoneNumbers = [
-        "+918208955480" // Replace with your target WhatsApp number(s)
+        "+918767397768" // Replace with your target WhatsApp number(s)
     ];
     const location_link = `https://www.google.com/maps?q=${currentlocation.latitude},${currentlocation.longitude}`;
 
@@ -73,6 +74,7 @@ async function sendSOSMessage(origin, destination, currentlocation) {
                 throw new Error(`Failed to send message to ${number}: ${responseData.error.message}`);
             } else {
                 console.log("Message sent successfully:", responseData);
+                alert("message sent successfully");
             }
         });
 
