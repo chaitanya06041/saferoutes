@@ -1,4 +1,4 @@
-document.getElementById('sos-btn').addEventListener('click', async function () {
+document.getElementById('sosbtn').addEventListener('click', async function () {
     // Get the input values for origin and destination
     const origin = document.getElementById('origin-input').value.trim();
     const destination = document.getElementById('destination-input').value.trim();
