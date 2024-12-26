@@ -18,7 +18,7 @@ var data = [
         "lati": 73.9122,
         "type": "Feature",
         "properties": {
-            "mag": 4
+            "mag": 3
         },
         "longi": 18.5665
     }, {
@@ -130,7 +130,7 @@ var data = [
         "lati": 73.8077,
         "type": "Feature",
         "properties": {
-            "mag": 4
+            "mag": 3
         },
         "longi": 18.4865
     }, {
@@ -228,7 +228,7 @@ var data = [
         "lati": 73.876,
         "type": "Feature",
         "properties": {
-            "mag": 4
+            "mag": 3
         },
         "longi": 18.5286
     }, {
@@ -333,7 +333,7 @@ var data = [
         "lati": 73.7725,
         "type": "Feature",
         "properties": {
-            "mag": 4
+            "mag": 3
         },
         "longi": 18.6042
     }, {
