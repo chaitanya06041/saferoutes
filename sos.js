@@ -103,7 +103,6 @@ function showNearestCommunityCenter() {
             bounds.extend(new google.maps.LatLng(nearestCenter.lat, nearestCenter.lon));
             map.fitBounds(bounds);
 
-            // sendEmergencyNotification();
         } else {
             alert("No community centers found in the data.");
         }
