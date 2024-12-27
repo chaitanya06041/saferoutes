@@ -15,6 +15,8 @@ document.getElementById('sosbtn').addEventListener('click', async function () {
             function(position) {
                 const latitude = position.coords.latitude;
                 const longitude = position.coords.longitude;
+                console.log("Current location for message: ", latitude, longitude);
+                
     
                 // Store current location for further use
                 currentLocation = { latitude, longitude };
