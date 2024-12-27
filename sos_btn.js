@@ -1,218 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
+document.getElementById('sosbtn').addEventListener('click', async function () {
+    // Get the input values for origin and destination
+    const origin = document.getElementById('origin-input').value.trim();
+    const destination = document.getElementById('destination-input').value.trim();
 
-<head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css">
-
-
-    <title>SafeRoute</title>
-    <link rel="icon" href="images/web-icon.png" type="image/png">
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/templatemo-woox-travel.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="mapcss.css" />
-    <!--
-
-TemplateMo 580 Woox Travel
-
-https://templatemo.com/tm-580-woox-travel
-
--->
-
-</head>
-<style>
-</style>
-
-<body>
-
-    <!-- ***** Preloader Start ***** -->
-    <div id="js-preloader" class="js-preloader">
-        <div class="preloader-inner">
-            <span class="dot"></span>
-            <div class="dots">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </div>
-    <!-- ***** Preloader End ***** -->
-
-    <!-- ***** Header Area Start ***** -->
-        <header class="header-area header-sticky">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo">
-                            <img src="images/logo-removebg-preview.png" alt="">
-                        </a>
-                        <!-- ***** Logo End ***** -->
-                        <!-- ***** Menu Start ***** -->
-                        <ul class="nav">
-                            <li><a href="index.html" class="active">Nav📍</a></li>
-                            <li><a href="#map">Safe-Spots</a></li>
-                            <li><a href="#map">SOS</a></li>
-                            <li><a href="#map">Voice-Nav</a></li>
-                            <li><a href="#map">Login</a></li>
-                        </ul>
-                        <a class='menu-trigger'>
-                            <span>Menu</span>
-                        </a>
-                        <!-- ***** Menu End ***** -->
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- ***** Header Area End ***** -->
-
-    <!-- ***** Main Banner Area Start ***** -->
-    <div class="info">
-        <div class="info_container">
-            <h1>
-                <span id="typed"></span>
-            </h1>
-            <div class="container_1">
-                <div class="input-section">
-                  <!-- First Row: Source, Swap, Destination -->
-                  <div class="input-row">
-                    <div class="input-item" >
-                      <img src="images/pin.png" alt="Source" class="icon">
-                      <input id="origin-input" type="text" placeholder="Source" class="input-field">
-                    </div>
-              
-                    <div class="input-item" >
-                      <img src="images/alter.png" alt="Swap" class="icon" id="swap-button">
-                    </div>
-              
-                    <div class="input-item">
-                      <img src="images/flag.png" alt="Destination" class="icon">
-                      <input id="destination-input" type="text" placeholder="Destination" class="input-field">
-                    </div>
-                  </div>
-              
-                  <!-- Second Row: Transport Modes -->
-                  <div class="transport-mode" id="mode-selector">
-                    <label>
-                      <input type="radio" name="mode" value="walking" id="changemode-walking">
-                      <img src="images/man-walking.png" alt="Walking" class="mode-icon">
-                      <span>Walking</span>
-                    </label>
-                    <label>
-                      <input type="radio" name="mode" value="transit" id="changemode-transit">
-                      <img src="images/bus.png" alt="Transit" class="mode-icon">
-                      <span>Transit</span>
-                    </label>
-                    <label>
-                      <input type="radio" name="mode" value="driving" id="changemode-driving" checked>
-                      <img src="images/car.png" alt="Driving" class="mode-icon">
-                      <span>Driving</span>
-                    </label>
-                  </div>
-              
-                  <div class="sosClass">
-                      <button id="sosbtn" class="btn btn-danger">SOS</button>
-                  </div>
-                </div>
-              </div>
-        </div>
-    </div>
-    <!-- ***** Main Banner Area End ***** -->
-
+    // Validate inputs
+    if (!origin || !destination) {
+        const errorMessageElement = document.getElementById('error-message');
+        errorMessageElement.innerText = "Please enter both origin and destination.";
+        errorMessageElement.style.color = "red";
+        return;
+    }
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
     
-    
-      <div id="map" class="ui container"></div>
-      <div id="added-lists">
-        
-      </div>
-      <br>
-      <br>
-      
-        <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABXrzOdYntmVFt7vHZPMHEtAnvZLr7N-s&libraries=places"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-        <script src="data.js"></script>
-        <script src="map.js"></script>
-        <script src="sos.js"></script>
-        <script src="sos_btn.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+                // Store current location for further use
+                currentLocation = { latitude, longitude };
+            },
+            function(error) {
+                console.error("Error Code = " + error.code + " - " + error.message);
+            }
+        );
+    } else {
+        console.error("Geolocation is not supported by this browser.");
+        return
+    }
 
-    
-    
+    // Call the function to send the message
+    await sendSOSMessage(origin, destination);
+});
 
-    <!-- ------------------------------------------------------------------------------------------------------------ -->
-    <!-- ------------------------------------------------------------------------------------------------------------ -->
-    <!-- ------------------------------------------------------------------------------------------------------------ -->
-    <!-- ------------------------------------------------------------------------------------------------------------ -->
-    <!-- Scripts -->
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+async function sendSOSMessage(origin, destination) {
+    const phoneNumbers = [
+        "+918208955480" // Replace with your target WhatsApp number(s)
+    ];
+    // const location_link = `https://www.google.com/maps?q=${currentlocation.latitude},${currentlocation.longitude}`;
 
-    <script src="assets/js/isotope.min.js"></script>
-    <script src="assets/js/owl-carousel.js"></script>
-    <script src="assets/js/isotope.js"></script>
-    <script src="assets/js/tabs.js"></script>
-    <script src="assets/js/popup.js"></script>
-    <script src="assets/js/custom.js"></script>
-
-    <script>
-        // function bannerSwitcher() {
-        //     next = $('.sec-1-input').filter(':checked').next('.sec-1-input');
-        //     if (next.length) next.prop('checked', true);
-        //     else $('.sec-1-input').first().prop('checked', true);
-        // }
-
-        // var bannerTimer = setInterval(bannerSwitcher, 5000);
-
-        // $('nav .controls label').click(function() {
-        //     clearInterval(bannerTimer);
-        //     bannerTimer = setInterval(bannerSwitcher, 5000)
-        // });
-
-
-        // Get references to the input fields and the swap button
-        const sourceInput = document.getElementById("origin-input");
-        const destinationInput = document.getElementById("destination-input");
-        const swapButton = document.getElementById("swap-button");
-
-        // Add a click event listener to the swap button
-        swapButton.addEventListener("click", () => {
-        // Swap the values of the source and destination input fields
-        const tempValue = sourceInput.value;
-        sourceInput.value = destinationInput.value;
-        destinationInput.value = tempValue;
-
-        
-        });
-
-        document.addEventListener("DOMContentLoaded", function () {
-            var typeData = new Typed("#typed", {
-                strings: [
-                "Empowering Navigation with Safety First",
-                "Because Every Journey Deserves Protection.",
-                "Stay Informed, Stay Safe.",
-                ],
-                loop: true, // Enable looping
-                typeSpeed: 100, // Speed of typing
-                backSpeed: 80, // Speed of deleting
-                backDelay: 1000, // Delay before starting to delete
-                startDelay: 300, // Delay before typing starts
+    try {
+        const promises = phoneNumbers.map(async (number) => {
+            const response = await fetch("https://graph.facebook.com/v21.0/422748917593803/messages", {
+                method: "POST",
+                headers: {
+                    "Authorization": "Bearer EAAHUg5KRZBisBOynnzokOiLspJGh3VpvvH8Gqa91JSH7bG4ylkJs9FCfWuXNVn3CWkAOvFKhWZAmo98zdRXdre6ggNcXaJLl5NbYsnqmnN1CD0NQ6cVIEoLZA9dTqbkgHnBbxbSvpoxB3Peu7TBnxSqon5cdrz5oVuZCt4MIvWMdyiLIhkT6vKfurRV5HeP8VZAobvuNDR3MmRFfuekokTFDL3fvIfLuZA72uMy48ZD", // Replace with your token
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    messaging_product: "whatsapp",
+                    to: number,
+                    type: "template", // Specify template message type
+                    template: {
+                        name: "sos_btn_msg_alert", // Template name
+                        language: { code: "en" }, // Language code
+                        components: [
+                            {
+                                type: "body",
+                                parameters: [
+                                    { type: "text", text: origin }, // Origin parameter ({{1}})
+                                    { type: "text", text: destination } // Destination parameter ({{2}})
+                                ]
+                            }
+                        ]
+                    }
+                })
             });
+
+            const responseData = await response.json();
+
+            if (!response.ok) {
+                console.error("Failed to send message:", responseData);
+                throw new Error(`Failed to send message to ${number}: ${responseData.error.message}`);
+            } else {
+                console.log("Message sent successfully:", responseData);
+            }
         });
-    </script>
 
-</body>
+        await Promise.all(promises);
 
-</html>
+        // Success message
+        const successMessageElement = document.getElementById('success-message');
+        if (successMessageElement) {
+            successMessageElement.innerText = "Your SOS message has been sent successfully!";
+            successMessageElement.style.color = "green";
+        }
+
+    } catch (error) {
+        // Error message
+        const errorMessageElement = document.getElementById('error-message');
+        if (errorMessageElement) {
+            errorMessageElement.innerText = `Failed to send SOS message: ${error.message}`;
+            errorMessageElement.style.color = "red";
+        }
+    }
+}
